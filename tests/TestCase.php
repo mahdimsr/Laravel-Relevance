@@ -3,8 +3,8 @@
 namespace Msr\LaravelRelevance\Tests;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Orchestra\Testbench\TestCase as Orchestra;
 use Msr\LaravelRelevance\LaravelRelevanceServiceProvider;
+use Orchestra\Testbench\TestCase as Orchestra;
 
 class TestCase extends Orchestra
 {
