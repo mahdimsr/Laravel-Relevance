@@ -35,4 +35,9 @@ class TestCase extends Orchestra
         $migration = include __DIR__.'/../database/migrations/create_relevance_table.php';
         $migration->up();
     }
+
+    protected function defineDatabaseMigrations()
+    {
+        $this->loadLaravelMigrations();
+    }
 }

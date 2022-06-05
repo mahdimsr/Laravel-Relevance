@@ -14,3 +14,15 @@ it('insert basic relevance record', function () {
 
     $this->assertModelExists($model);
 });
+
+it('change config table name', function () {
+    $tableName = 'relevance_test';
+
+    config()->set('relevance.database.relevance_table_name', $tableName);
+
+    $this->assertSame((new \Msr\LaravelRelevance\Pivot\Relevance())->getTable(), $tableName);
+});
+
+it('check users table exists', function () {
+    $this->assertDatabaseCount('users', 0);
+});
