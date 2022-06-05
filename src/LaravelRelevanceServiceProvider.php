@@ -2,7 +2,6 @@
 
 namespace Msr\LaravelRelevance;
 
-use Msr\LaravelRelevance\Commands\LaravelRelevanceCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 
