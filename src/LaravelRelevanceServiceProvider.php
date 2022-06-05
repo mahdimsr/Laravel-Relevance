@@ -19,7 +19,7 @@ class LaravelRelevanceServiceProvider extends PackageServiceProvider
             ->name('laravel-relevance')
             ->hasConfigFile()
             ->hasViews()
-            ->hasMigration('create_laravel-relevance_table')
+            ->hasMigration('create_relevance_table')
             ->hasCommand(LaravelRelevanceCommand::class);
     }
 }
