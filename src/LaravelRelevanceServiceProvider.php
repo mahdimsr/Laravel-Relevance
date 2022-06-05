@@ -2,7 +2,6 @@
 
 namespace Msr\LaravelRelevance;
 
-use Msr\LaravelRelevance\Commands\LaravelRelevanceCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 
@@ -19,7 +18,6 @@ class LaravelRelevanceServiceProvider extends PackageServiceProvider
             ->name('laravel-relevance')
             ->hasConfigFile()
             ->hasViews()
-            ->hasMigration('create_relevance_table')
-            ->hasCommand(LaravelRelevanceCommand::class);
+            ->hasMigration('create_relevance_table');
     }
 }
