@@ -1,10 +1,10 @@
 <?php
 
 it('check create relevance method exists', function () {
-    if (method_exists(\Msr\LaravelRelevance\Tests\UserModelTest::class, 'createRelevance')) {
+    if (method_exists(\Msr\LaravelRelevance\Tests\UserModelTest::class, 'addRelevance')) {
         $this->assertTrue(true);
     } else {
-        $this->assertTrue(false, 'createRelevance method doesnt exists in UserModelTest model');
+        $this->assertTrue(false, 'addRelevance method doesnt exists in UserModelTest model');
     }
 });
 
@@ -21,7 +21,7 @@ it('check user can follow other user', function () {
        'password' => \Illuminate\Support\Facades\Hash::make('123456'),
    ]);
 
-    $response = $authUser->createRelevance('follow', $targetUser);
+    $response = $authUser->addRelevance('follow', $targetUser);
 
     $this->assertModelExists($response);
 });
@@ -39,7 +39,7 @@ it('get relevance record', function () {
         'password' => \Illuminate\Support\Facades\Hash::make('123456'),
     ]);
 
-    $response = $authUser->createRelevance('follow', $targetUser);
+    $response = $authUser->addRelevance('follow', $targetUser);
 
     $relevanceRecord = $authUser->getRelevance('follow', $targetUser);
 
@@ -59,10 +59,10 @@ it('check unique relevance', function () {
         'password' => \Illuminate\Support\Facades\Hash::make('123456'),
     ]);
 
-    $response = $authUser->createRelevance('follow', $targetUser);
-    $response = $authUser->createRelevance('follow', $targetUser);
-    $response = $authUser->createRelevance('follow', $targetUser);
-    $response = $authUser->createRelevance('follow', $targetUser);
+    $response = $authUser->addRelevance('follow', $targetUser);
+    $response = $authUser->addRelevance('follow', $targetUser);
+    $response = $authUser->addRelevance('follow', $targetUser);
+    $response = $authUser->addRelevance('follow', $targetUser);
 
     $relevanceCount = $authUser->relevance()->whereRelationName('follow')->whereModel($targetUser)->count();
 

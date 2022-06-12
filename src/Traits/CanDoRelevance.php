@@ -16,7 +16,7 @@ trait CanDoRelevance
         return $this->hasMany(Relevance::class, config('relevance.database.relevance_user_foreign_key_column_name', 'user_id'));
     }
 
-    public function createRelevance(string $relationName, Model $model): Model
+    public function addRelevance(string $relationName, Model $model): Model
     {
         return $this->relevance()->updateOrCreate([
             config('relevance.database.relevance_column_name', 'relevance').'_type' => get_class($model),
