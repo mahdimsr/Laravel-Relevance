@@ -45,3 +45,26 @@ it('get relevance record', function () {
 
     $this->assertEquals($response->id, $relevanceRecord->id);
 });
+
+it('check unique relevance', function () {
+    $authUser = \Msr\LaravelRelevance\Tests\UserModelTest::query()->create([
+        'name' => 'authUser@mail.com',
+        'email' => 'authUser@mail.com',
+        'password' => \Illuminate\Support\Facades\Hash::make('123456'),
+    ]);
+
+    $targetUser = \Msr\LaravelRelevance\Tests\UserModelTest::query()->create([
+        'name' => 'targetUser@mail.com',
+        'email' => 'targetUser@mail.com',
+        'password' => \Illuminate\Support\Facades\Hash::make('123456'),
+    ]);
+
+    $response = $authUser->createRelevance('follow', $targetUser);
+    $response = $authUser->createRelevance('follow', $targetUser);
+    $response = $authUser->createRelevance('follow', $targetUser);
+    $response = $authUser->createRelevance('follow', $targetUser);
+
+    $relevanceCount = $authUser->relevance()->whereRelationName('follow')->whereModel($targetUser)->count();
+
+    $this->assertEquals(1, $relevanceCount);
+});

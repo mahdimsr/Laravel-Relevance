@@ -18,7 +18,7 @@ trait CanDoRelevance
 
     public function createRelevance(string $relationName, Model $model): Model
     {
-        return $this->relevance()->create([
+        return $this->relevance()->updateOrCreate([
             config('relevance.database.relevance_column_name', 'relevance').'_type' => get_class($model),
             config('relevance.database.relevance_column_name', 'relevance').'_id' => $model->getKey(),
             config('relevance.database.relevance_relation_column_name', 'relation_name') => $relationName,
