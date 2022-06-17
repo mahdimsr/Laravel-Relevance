@@ -1,11 +1,6 @@
-
-[<img src="https://github-ads.s3.eu-central-1.amazonaws.com/support-ukraine.svg?t=1" />](https://supportukrainenow.org)
-
 # laravel package to define some social relevance
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/msr/laravel-relevance.svg?style=flat-square)](https://packagist.org/packages/msr/laravel-relevance)
 [![run-tests](https://github.com/mahdimsr/Laravel-Relevance/actions/workflows/run-tests.yml/badge.svg?branch=main)](https://github.com/mahdimsr/Laravel-Relevance/actions/workflows/run-tests.yml)
-[![Total Downloads](https://img.shields.io/packagist/dt/msr/laravel-relevance.svg?style=flat-square)](https://packagist.org/packages/msr/laravel-relevance)
 
 This is where your description should go. Limit it to a paragraph or two. Consider adding a small example.
 
