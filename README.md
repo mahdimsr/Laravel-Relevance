@@ -4,8 +4,7 @@
 # laravel package to define some social relevance
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/msr/laravel-relevance.svg?style=flat-square)](https://packagist.org/packages/msr/laravel-relevance)
-[![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/msr/laravel-relevance/run-tests?label=tests)](https://github.com/msr/laravel-relevance/actions?query=workflow%3Arun-tests+branch%3Amain)
-[![GitHub Code Style Action Status](https://img.shields.io/github/workflow/status/msr/laravel-relevance/Check%20&%20fix%20styling?label=code%20style)](https://github.com/msr/laravel-relevance/actions?query=workflow%3A"Check+%26+fix+styling"+branch%3Amain)
+[![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/msr/laravel-relevance/run-tests?label=tests)](https://github.com/mahdimsr/Laravel-Relevance/actions/workflows/run-tests.yml?query=branch%3Amain)
 [![Total Downloads](https://img.shields.io/packagist/dt/msr/laravel-relevance.svg?style=flat-square)](https://packagist.org/packages/msr/laravel-relevance)
 
 This is where your description should go. Limit it to a paragraph or two. Consider adding a small example.
@@ -43,28 +42,55 @@ This is the contents of the published config file:
 
 ```php
 return [
+
+    /**
+     * database configuration
+     */
+    'database' => [
+        'relevance_user_foreign_key_column_name' => 'user_id',
+        'relevance_table_name' => 'relevance',
+        'relevance_column_name' => 'relevance_name',
+        'relevance_relation_column_name' => 'relation_name',
+    ],
+    
 ];
 ```
 
-Optionally, you can publish the views using
-
-```bash
-php artisan vendor:publish --tag="laravel-relevance-views"
-```
-
 ## Usage
+add `Msr\LaravelRelevance\Traits\CanDoRelevance` trait to your model, which one can do some action... e.x= User
 
 ```php
-$laravelRelevance = new Msr\LaravelRelevance();
-echo $laravelRelevance->echoPhrase('Hello, Msr!');
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Msr\LaravelRelevance\Traits\CanDoRelevance;
+
+class User extends Authenticatable
+{
+    use CanDoRelevance;
 ```
-
-## Testing
-
-```bash
-composer test
+then you can define relation between you models like below:
+```php
+$mainUser->addRelevence('your_relation_name',$yourModel);
 ```
-
+or remove relation:
+```php
+$mainUser->removeRelevence('your_relation_name',$yourModel);
+```
+you can toggle relation:
+```php
+$mainUser->toggleRelevence('your_relation_name',$yourModel);
+```
+check relation exists:
+```php
+$mainUser->relevanceExist('your_relation_name',$yourModel);
+```
+get relation:
+```php
+$mainUser->getRelevance('your_relation_name',$yourModel);
+```
+count of a relation of model:
+```php
+$mainUser->relevanceCount('your_relation_name');
+```
 ## Changelog
 
 Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed recently.
@@ -72,15 +98,6 @@ Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed re
 ## Contributing
 
 Please see [CONTRIBUTING](https://github.com/spatie/.github/blob/main/CONTRIBUTING.md) for details.
-
-## Security Vulnerabilities
-
-Please review [our security policy](../../security/policy) on how to report security vulnerabilities.
-
-## Credits
-
-- [Mahdi Msr](https://github.com/mahdimsr)
-- [All Contributors](../../contributors)
 
 ## License
 

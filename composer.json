@@ -6,6 +6,7 @@
         "laravel",
         "laravel-relevance"
     ],
+    "type": "package",
     "homepage": "https://github.com/msr/laravel-relevance",
     "license": "MIT",
     "authors": [
