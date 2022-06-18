@@ -56,23 +56,23 @@ class User extends Authenticatable
 ```
 then you can define relation between you models like below:
 ```php
-$mainUser->addRelevence('your_relation_name',$yourModel);
+$mainUser->addRelevence('your_relation_name', $yourModel);
 ```
 or remove relation:
 ```php
-$mainUser->removeRelevence('your_relation_name',$yourModel);
+$mainUser->removeRelevence('your_relation_name', $yourModel);
 ```
 you can toggle relation:
 ```php
-$mainUser->toggleRelevence('your_relation_name',$yourModel);
+$mainUser->toggleRelevence('your_relation_name', $yourModel);
 ```
 check relation exists:
 ```php
-$mainUser->relevanceExist('your_relation_name',$yourModel);
+$mainUser->relevanceExist('your_relation_name', $yourModel);
 ```
 get relation:
 ```php
-$mainUser->getRelevance('your_relation_name',$yourModel);
+$mainUser->getRelevance('your_relation_name', $yourModel);
 ```
 count of a relation of model:
 ```php
