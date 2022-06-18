@@ -2,7 +2,7 @@
 
 [![run-tests](https://github.com/mahdimsr/Laravel-Relevance/actions/workflows/run-tests.yml/badge.svg?branch=main)](https://github.com/mahdimsr/Laravel-Relevance/actions/workflows/run-tests.yml)
 
-This is where your description should go. Limit it to a paragraph or two. Consider adding a small example.
+This package provides a simple API to associate social relevance between Eloquent models.
 
 ## Installation
 
