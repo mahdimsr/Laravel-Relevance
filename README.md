@@ -2,7 +2,7 @@
 
 [![run-tests](https://github.com/mahdimsr/Laravel-Relevance/actions/workflows/run-tests.yml/badge.svg?branch=main)](https://github.com/mahdimsr/Laravel-Relevance/actions/workflows/run-tests.yml)
 
-This is where your description should go. Limit it to a paragraph or two. Consider adding a small example.
+This package provides a simple API to associate social relevance between Eloquent models.
 
 ## Installation
 
@@ -56,23 +56,23 @@ class User extends Authenticatable
 ```
 then you can define relation between you models like below:
 ```php
-$mainUser->addRelevence('your_relation_name',$yourModel);
+$mainUser->addRelevence('your_relation_name', $yourModel);
 ```
 or remove relation:
 ```php
-$mainUser->removeRelevence('your_relation_name',$yourModel);
+$mainUser->removeRelevence('your_relation_name', $yourModel);
 ```
 you can toggle relation:
 ```php
-$mainUser->toggleRelevence('your_relation_name',$yourModel);
+$mainUser->toggleRelevence('your_relation_name', $yourModel);
 ```
 check relation exists:
 ```php
-$mainUser->relevanceExist('your_relation_name',$yourModel);
+$mainUser->relevanceExist('your_relation_name', $yourModel);
 ```
 get relation:
 ```php
-$mainUser->getRelevance('your_relation_name',$yourModel);
+$mainUser->getRelevance('your_relation_name', $yourModel);
 ```
 count of a relation of model:
 ```php
