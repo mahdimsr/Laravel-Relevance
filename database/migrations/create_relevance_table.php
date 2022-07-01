@@ -14,6 +14,8 @@ return new class () extends Migration {
             $table->string(config('relevance.database.relevance_relation_column_name', 'relation_name'));
             $table->timestamps();
             $table->softDeletes();
+
+            $table->index(config('relevance.database.relevance_user_foreign_key_column_name', 'user_id'));
         });
     }
 };
